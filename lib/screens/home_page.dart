@@ -28,6 +28,7 @@ class HomePage extends StatelessWidget {
                 ),
                 centerTitle: false,
                 pinned: true,
+                snap: true,
                 floating: true,
                 actions: <Widget>[
                   const CircleButton(icon: Icons.add),

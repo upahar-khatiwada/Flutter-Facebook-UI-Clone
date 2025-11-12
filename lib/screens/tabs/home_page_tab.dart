@@ -12,6 +12,7 @@ class HomePageTab extends StatelessWidget {
         children: <Widget>[
           const PostContainer(),
           StoryWidget(currentUser: currentUser, storiesList: stories),
+          Posts(postsList: posts)
         ],
       ),
     );
