@@ -3,6 +3,7 @@ import 'package:facebook_ui/config/palette.dart';
 import 'package:facebook_ui/models/story_model.dart';
 import 'package:facebook_ui/models/user_model.dart';
 import 'package:flutter/material.dart';
+import 'package:hexcolor/hexcolor.dart';
 
 class StoryWidget extends StatelessWidget {
   final User currentUser;
@@ -15,15 +16,20 @@ class StoryWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      height: 200,
+    return Container(
+      height: 215,
+      width: double.infinity,
+      color: HexColor('#252728'),
       child: ListView.builder(
         scrollDirection: Axis.horizontal,
         itemCount: storiesList.length + 1,
         itemBuilder: (BuildContext context, int index) {
           if (index == 0) {
             return Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 5.0),
+              padding: const EdgeInsets.symmetric(
+                horizontal: 5.0,
+                vertical: 6.0,
+              ),
               child: SizedBox(
                 height: 200,
                 child: Stack(
@@ -32,11 +38,10 @@ class StoryWidget extends StatelessWidget {
                       height: 200,
                       width: 110,
                       decoration: BoxDecoration(
-                        color: Colors.grey[850],
+                        color: Colors.grey[800],
                         borderRadius: BorderRadius.circular(12.0),
                       ),
                     ),
-
                     ClipRRect(
                       borderRadius: const BorderRadius.only(
                         topLeft: Radius.circular(12.0),
@@ -49,7 +54,6 @@ class StoryWidget extends StatelessWidget {
                         fit: BoxFit.cover,
                       ),
                     ),
-
                     Container(
                       height: 150,
                       width: 110,
@@ -62,8 +66,8 @@ class StoryWidget extends StatelessWidget {
                       ),
                     ),
                     Positioned(
-                      bottom: 35,
-                      left: 35,
+                      bottom: 60,
+                      left: 38,
                       child: Container(
                         decoration: BoxDecoration(
                           color: Colors.blue,
@@ -79,8 +83,8 @@ class StoryWidget extends StatelessWidget {
                       ),
                     ),
                     const Positioned(
-                      bottom: 10,
-                      left: 0,
+                      bottom: 7,
+                      left: 5,
                       right: 0,
                       child: Text(
                         'Create Story',
@@ -96,13 +100,17 @@ class StoryWidget extends StatelessWidget {
               ),
             );
           } else {
-            return SizedBox(
-              height: 200,
-              child: Stack(
-                children: <Widget>[
-                  Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 5.0),
-                    child: ClipRRect(
+            return Padding(
+              padding: const EdgeInsets.symmetric(
+                horizontal: 5.0,
+                vertical: 6.0,
+              ),
+              child: SizedBox(
+                height: 200,
+                width: 110,
+                child: Stack(
+                  children: <Widget>[
+                    ClipRRect(
                       borderRadius: BorderRadius.circular(12.0),
                       child: CachedNetworkImage(
                         imageUrl: storiesList[index - 1].imageUrl,
@@ -111,52 +119,52 @@ class StoryWidget extends StatelessWidget {
                         fit: BoxFit.cover,
                       ),
                     ),
-                  ),
-                  Container(
-                    height: 200.0,
-                    width: 110,
-                    decoration: BoxDecoration(
-                      gradient: Palette.storyGradient,
-                      borderRadius: BorderRadius.circular(12.0),
-                    ),
-                  ),
-                  Positioned(
-                    left: 10,
-                    bottom: 3,
-                    child: Text(
-                      storiesList[index - 1].user.name,
-                      style: const TextStyle(
-                        color: Colors.white,
-                        fontWeight: FontWeight.bold,
-                        overflow: TextOverflow.ellipsis,
+                    Container(
+                      height: 200.0,
+                      width: 110,
+                      decoration: BoxDecoration(
+                        gradient: Palette.storyGradient,
+                        borderRadius: BorderRadius.circular(12.0),
                       ),
                     ),
-                  ),
-                  Positioned(
-                    top: 3.0,
-                    left: 10.0,
-                    child: Container(
-                      padding: const EdgeInsets.all(1.5),
-                      decoration: storiesList[index - 1].isViewed
-                          ? BoxDecoration(
-                              shape: BoxShape.circle,
-                              border: Border.all(
-                                color: Colors.blue,
-                                style: BorderStyle.solid,
-                                width: 2.0,
-                              ),
-                            )
-                          : null,
-                      child: CircleAvatar(
-                        backgroundColor: Colors.grey,
-                        radius: 18,
-                        backgroundImage: CachedNetworkImageProvider(
-                          storiesList[index - 1].user.imageUrl,
+                    Positioned(
+                      left: 5,
+                      bottom: 7,
+                      child: Text(
+                        storiesList[index - 1].user.name,
+                        style: const TextStyle(
+                          color: Colors.white,
+                          fontWeight: FontWeight.bold,
+                          overflow: TextOverflow.ellipsis,
                         ),
                       ),
                     ),
-                  ),
-                ],
+                    Positioned(
+                      top: 3.0,
+                      left: 10.0,
+                      child: Container(
+                        padding: const EdgeInsets.all(1.5),
+                        decoration: storiesList[index - 1].isViewed
+                            ? BoxDecoration(
+                                shape: BoxShape.circle,
+                                border: Border.all(
+                                  color: Colors.blue,
+                                  style: BorderStyle.solid,
+                                  width: 2.0,
+                                ),
+                              )
+                            : null,
+                        child: CircleAvatar(
+                          backgroundColor: Colors.grey,
+                          radius: 18,
+                          backgroundImage: CachedNetworkImageProvider(
+                            storiesList[index - 1].user.imageUrl,
+                          ),
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
               ),
             );
           }

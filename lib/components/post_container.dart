@@ -1,6 +1,7 @@
 import 'package:facebook_ui/data/data.dart';
 import 'package:flutter/material.dart';
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:hexcolor/hexcolor.dart';
 
 class PostContainer extends StatelessWidget {
   const PostContainer({super.key});
@@ -8,6 +9,8 @@ class PostContainer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
+      color: HexColor('#252728'),
+      margin: const EdgeInsets.symmetric(vertical: 5.0),
       padding: const EdgeInsets.fromLTRB(10.0, 12.0, 10.0, 10.0),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -21,9 +24,11 @@ class PostContainer extends StatelessWidget {
           Expanded(
             child: TextField(
               decoration: InputDecoration(
+                fillColor: Colors.black,
+                filled: true,
                 hintText: 'What\'s on your mind?',
                 hintStyle: const TextStyle(color: Colors.white),
-                
+
                 contentPadding: const EdgeInsets.symmetric(
                   vertical: 0,
                   horizontal: 15,

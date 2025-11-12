@@ -2,6 +2,7 @@ import 'package:facebook_ui/screens/tabs/home_page_tab.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:facebook_ui/components/components.dart';
+import 'package:hexcolor/hexcolor.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 
 class HomePage extends StatelessWidget {
@@ -16,7 +17,7 @@ class HomePage extends StatelessWidget {
           headerSliverBuilder: (BuildContext context, bool innerBoxIsScrolled) {
             return <Widget>[
               SliverAppBar(
-                backgroundColor: Colors.black,
+                backgroundColor: HexColor('#252728'),
                 title: const Text(
                   'facebook',
                   style: TextStyle(

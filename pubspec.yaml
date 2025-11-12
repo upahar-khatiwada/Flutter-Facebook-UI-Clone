@@ -36,6 +36,7 @@ dependencies:
   cupertino_icons: ^1.0.8
   cached_network_image: ^3.4.1
   material_design_icons_flutter: ^7.0.7296
+  hexcolor: ^3.0.1
 
 dev_dependencies:
   flutter_test:

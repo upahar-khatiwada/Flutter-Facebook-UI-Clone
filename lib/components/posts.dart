@@ -1,6 +1,7 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:facebook_ui/models/post_model.dart';
 import 'package:flutter/material.dart';
+import 'package:hexcolor/hexcolor.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 
 class Posts extends StatelessWidget {
@@ -14,8 +15,10 @@ class Posts extends StatelessWidget {
       itemCount: postsList.length,
       shrinkWrap: true,
       itemBuilder: (BuildContext context, int index) {
-        return Padding(
-          padding: const EdgeInsets.only(top: 0, bottom: 10.0),
+        return Container(
+          color: HexColor('#252728'),
+          margin: const EdgeInsets.only(top: 5),
+          padding: const EdgeInsets.only(top: 5),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
